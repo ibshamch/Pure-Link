@@ -33,6 +33,8 @@
   border-right: none;
   border-left: none;
   margin: 0 auto;
+  max-width: 500px;
+  margin-top: 2em;
 }
 .or-container {
   width: 80%;
@@ -70,4 +72,52 @@
 .user-input:focus {
   border: none;
   outline: rgb(103, 103, 226) 2px solid;
+}
+.moto-text {
+  display: none;
+}
+.moto-container {
+  width: 98%;
+  margin: 0 auto;
+}
+.image-container {
+  justify-content: center;
+  align-items: center;
+  width: 98%;
+  margin: 0 auto;
+}
+@media (min-width: 850px) {
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+    margin-top: 4em;
+  }
+
+  .logo {
+    width: 150px;
+  }
+  .moto-text {
+    display: block;
+    font-weight: 500;
+    margin-top: 2em;
+    font-size: 1.5rem;
+  }
+  .description {
+    display: block;
+    max-width: 400px;
+  }
+  .moto-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
