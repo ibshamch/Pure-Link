@@ -1,8 +1,9 @@
 import ThemeContext from "./services/ThemeContext.jsx";
-import Homepage from "./Components/Homepage.tsx";
+import Homepage from "./Components/Homepage/Homepage.tsx";
 import { useState } from "react";
 import Navigation from "./Components/Navigation.tsx";
-
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./Components/LoginPage/LoginPage.tsx";
 const App = () => {
   const [darkTheme, setDarkTheme] = useState(false);
 
@@ -14,7 +15,10 @@ const App = () => {
         } min-h-screen`}
       >
         <Navigation />
-        <Homepage />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       </div>
     </ThemeContext.Provider>
   );

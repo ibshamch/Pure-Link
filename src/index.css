@@ -8,3 +8,15 @@
 body {
   margin: 0;
 }
+
+.login-btn {
+  background: #1877f2;
+  width: 150px;
+  border-radius: 0.5em;
+  padding: 0.7em 2em;
+  color: white;
+  margin-top: 1em;
+}
+.login-btn:hover {
+  background: #3c89ed;
+}

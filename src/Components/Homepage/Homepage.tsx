@@ -1,8 +1,9 @@
-import BlackLogo from "./../assets/connection.svg";
-import LightLogo from "./../assets/connection-light.svg";
+import BlackLogo from "./../../assets/connection.svg";
+import LightLogo from "./../../assets/connection-light.svg";
+import ThemeContext from "../../services/ThemeContext.jsx";
 import { useContext } from "react";
 import { motion } from "framer-motion";
-import ThemeContext from "../services/ThemeContext";
+import { Link } from "react-router-dom";
 const Homepage = (): JSX.Element => {
   const [darkTheme] = useContext(ThemeContext);
 
@@ -47,16 +48,19 @@ const Homepage = (): JSX.Element => {
                 "Connecting Simply, Sharing Purely."
               </p>
             </main>
-            <div className="btn-container text-center">
-              <motion.button
-                initial={{ y: 200 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
-                className="get-started mt-5 hover:bg-blue-800 text-white bg-blue-500 self-center py-3 px-12 rounded-full"
+            <motion.div
+              initial={{ y: 200 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1 }}
+              className="btn-container mt-5 text-center"
+            >
+              <Link
+                to="/login"
+                className="get-started  hover:bg-blue-800 text-white bg-blue-500 self-center py-3 px-12 rounded-full"
               >
                 Get Started
-              </motion.button>
-            </div>
+              </Link>
+            </motion.div>
           </div>
         </section>
       </div>
