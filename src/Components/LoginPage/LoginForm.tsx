@@ -1,30 +1,28 @@
 import { useState } from "react";
+import DatabaseData from "../Data/Database/database";
+import { useNavigate } from "react-router-dom";
+type Post = string;
 type DatabaseTypes = {
   username: string;
   password: string;
+  posts?: Post[];
+  id?: number;
 };
 type User = DatabaseTypes[];
-
 const LoginForm = () => {
-  const [database] = useState<User>([
-    { username: "ibsham", password: "123" },
-    { username: "aisham", password: "456" },
-    { username: "bobby", password: "789" },
-  ]);
-  const [userData, setUserData] = useState<DatabaseTypes>({
-    username: "",
-    password: "",
-  });
+  const [database] = useState<User>(DatabaseData);
+
+  const navigate = useNavigate();
   const checkCredentials = (userData: DatabaseTypes) => {
-    const user = database.filter((user) => {
+    const user = database.find((user) => {
       return (
         userData.username.toLowerCase() === user.username.toLowerCase() &&
         String(userData.password) === String(user.password)
       );
     });
-    const userFound = user[0] || null;
-    if (userFound) {
-      console.log("User Found: ", user[0]);
+    if (user) {
+      console.log("User Found: ", user);
+      navigate(`/feed/${user.id}`);
     } else {
       console.log("User not found");
     }
@@ -38,13 +36,12 @@ const LoginForm = () => {
         e.preventDefault();
         const formData: FormData = new FormData(e.target as HTMLFormElement);
 
-        const obj: { username: string; password: string } = {
+        const userCredentials: { username: string; password: string } = {
           username: String(formData.get("username")) || "",
           password: String(formData.get("password")) || "",
         };
 
-        setUserData(obj);
-        checkCredentials(userData);
+        checkCredentials(userCredentials);
       }}
       className="form"
     >

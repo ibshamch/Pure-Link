@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navigation from "./Components/Navigation.tsx";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./Components/LoginPage/LoginPage.tsx";
+import Feed from "./Components/Feed/Feed.tsx";
 const App = () => {
   const [darkTheme, setDarkTheme] = useState(false);
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/feed/:id" element={<Feed />} />
         </Routes>
       </div>
     </ThemeContext.Provider>
